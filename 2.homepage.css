@@ -1,0 +1,195 @@
+body {
+    background-color: #ffffff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    padding: 20px;
+    text-align: left;
+}
+
+.header {
+    background: #80d6ff;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.medicine-list {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.medicine-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.medicine-item:last-child {
+    border-bottom: none;
+}
+
+.icon {
+    width: 30px; /* Ukuran ikon diperbesar */
+    height: auto;
+}
+
+.medicine-info {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.medicine-info p {
+    margin: 0;
+    font-size: 12px;
+    color: gray;
+}
+
+.time-select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+
+.btn {
+    background: #80d6ff;
+    border: none;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 10px;
+    width: 45%;
+}
+
+.icon {
+    width: 30px; /* Sesuaikan ukuran ikon */
+    height: auto;
+}
+.button-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px; /* Jarak antar tombol */
+    justify-content: center;
+}
+
+.btn {
+    display: flex;
+    align-items: center; /* Membuat ikon dan teks sejajar */
+    justify-content: flex-start; /* Menempatkan konten ke kiri */
+    gap: 8px; /* Jarak antara ikon dan teks */
+    background: #80d6ff;
+    border: none;
+    padding: 12px 16px;
+    border-radius: 12px;
+    width: 171px;
+    height: 70px; /* Sesuaikan ukuran tombol */
+    text-align: left; 
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn img {
+    width: 20px; /* Ukuran ikon */
+    height: auto;
+}
+
+/* NAVBAR */
+.navbar {
+    background: #80d6ff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nav-icon img {
+    width: 25px;
+    height: auto;
+    transition: filter 0.3s ease-in-out;
+}
+
+/* Warna ikon navbar berubah saat halaman aktif */
+.nav-icon.active img {
+    filter: brightness(0) invert(1);
+}
+
+/* Icon tambah lebih besar */
+.ad-button {
+    background: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.add-button img {
+    width: 35px;
+    height: auto;
+}
+/* Jarak antar ikon lebih besar */
+.nav-icon {
+    margin: 0 20px;
+}
+
+/* List Obat */
+.medicine-list {
+    background: white;
+    padding: 10px;
+    border-radius: 10px;
+    margin-top: 10px;
+}
+
+.medicine-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.medicine-item:last-child {
+    border-bottom: none;
+}
+
+.icon {
+    width: 35px; /* Ikon diperbesar */
+    height: auto;
+}
+
+.medicine-info {
+    flex-grow: 1;
+    margin-left: 10px;
+}
+
+.medicine-info p {
+    margin: 0;
+    font-size: 12px;
+    color: gray;
+}
+
+.time-select {
+    padding: 5px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+    background: white;
+    font-size: 14px;
+    cursor: pointer;
+}
+

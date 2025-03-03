@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage Obat</title>
+    <link rel="stylesheet" href="2.homepage.css">
+    <script src="2.homepage.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h3>Hii BABI!!!</h3>
+            <p>Sudah minum obat hari ini?</p>
+            <div class="nearest-schedule">
+                <h5>Jadwal Terdekat</h5>
+                <div id="nearest-medicine-list"></div>
+            </div>
+            
+        </div>
+
+        <div class="button-group">
+            <button class="btn">
+                <img src="icon/efek-samping.png" class="icon"> Efek Samping
+            </button>
+            <button class="btn">
+                <img src="icon/cari.png" class="icon"> Cari Jadwal
+            </button>
+            <button class="btn">
+                <img src="icon/riwayat.png" class="icon"> Riwayat
+            </button>
+            <button class="btn">
+                <img src="icon/cek-bpom.png" class="icon"> Cek BPOM
+            </button>
+        </div>
+
+        <h5>Daftar Jadwal Minum Obat</h5>
+        <div class="medicine-list">
+            <div class="medicine-item">
+                <img src="icon/list-obat.png" class="icon">
+                <div class="medicine-info">
+                    <strong>Paracetamol 500mg</strong>
+                    <p>Setelah Makan</p>
+                </div>
+                <select class="time-select" id="time-paracetamol"></select>
+            </div>
+        
+            <div class="medicine-item">
+                <img src="icon/list-obat.png" class="icon">
+                <div class="medicine-info">
+                    <strong>Amoxicillin 50mg</strong>
+                    <p>Setiap hari selama 7 hari</p>
+                </div>
+                <select class="time-select" id="time-amoxicillin"></select>
+            </div>
+        
+            <div class="medicine-item">
+                <img src="icon/list-obat.png" class="icon">
+                <div class="medicine-info">
+                    <strong>Omeprazole 20mg</strong>
+                    <p>Sebelum makan pagi</p>
+                </div>
+                <select class="time-select" id="time-omeprazole"></select>
+            </div>
+        
+            <div class="medicine-item">
+                <img src="icon/list-obat.png" class="icon">
+                <div class="medicine-info">
+                    <strong>Loratadine 10mg</strong>
+                    <p>Sebelum tidur</p>
+                </div>
+                <select class="time-select" id="time-loratadine"></select>
+            </div>
+        </div>
+        <nav class="navbar">
+            <a href="2.homepage.html" class="nav-icon" id="home-icon">
+                <img src="icon/home.png" class="icon">
+            </a>
+            <a href="3.tambah.html" class="nav-icon center-icon" id="add-icon">
+                <div class="add-button">
+                    <img src="icon/tambah.png" class="icon">
+                </div>
+            </a>
+            <a href="profil.html" class="nav-icon" id="profile-icon">
+                <img src="icon/profil.png" class="icon">
+            </a>
+        </nav>
+           
+</body>
+</html>
