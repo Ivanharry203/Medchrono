@@ -92,3 +92,29 @@ button img {
     width: 35px; /* Ikon diperbesar */
     height: auto;
 }
+.medicine-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.medicine-item:hover {
+    background: #f1f1f1;
+}
+.medicine-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+    cursor: pointer; 
+    transition: background 0.3s ease;
+}
+
+.medicine-item:hover {
+    background: #f8f9fa; 
+}
