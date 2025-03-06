@@ -42,42 +42,50 @@ document.addEventListener("DOMContentLoaded", function () {
         const timeValues = [...document.querySelectorAll(".time-input")].map(input => input.value.trim());
 
         if (medicineName && timeValues.length > 0) {
-            let medicines = JSON.parse(localStorage.getItem("medicines")) || [];
-            medicines.push({ medicineName, condition, timeValues, additionalInfo });
-            localStorage.setItem("medicines", JSON.stringify(medicines));
+            let schedules = JSON.parse(localStorage.getItem("schedules")) || [];
 
-            displayMedicines();
+            timeValues.forEach(time => {
+                let [jam, menit] = time.split(":").map(Number);
+                schedules.push({ nama: medicineName, jam, menit, keterangan: condition || additionalInfo });
+            });
+
+            localStorage.setItem("schedules", JSON.stringify(schedules));
+
+            displaySchedules();
             scheduleModal.hide();
             showNotification(`Jadwal obat "${medicineName}" berhasil disimpan!`);
+            
+            // Memastikan homepage juga update
+            window.dispatchEvent(new Event("storage"));
         } else {
             alert("Harap isi semua data dengan benar!");
         }
     });
 
     // Menampilkan jadwal obat yang tersimpan
-    function displayMedicines() {
-        let medicines = JSON.parse(localStorage.getItem("medicines")) || [];
+    function displaySchedules() {
+        let schedules = JSON.parse(localStorage.getItem("schedules")) || [];
         scheduleList.innerHTML = "";
 
-        medicines.forEach(med => {
+        schedules.forEach(schedule => {
             let item = document.createElement("div");
             item.classList.add("medicine-item");
-            item.innerHTML = `<strong>${med.medicineName}</strong> <span>${med.timeValues.join(", ")}</span>`;
+            item.innerHTML = `<strong>${schedule.nama}</strong> <span>${String(schedule.jam).padStart(2, "0")}:${String(schedule.menit).padStart(2, "0")}</span>`;
             scheduleList.appendChild(item);
         });
 
-        scheduleList.style.display = medicines.length ? "block" : "none";
+        scheduleList.style.display = schedules.length ? "block" : "none";
     }
 
     // Notifikasi saat waktunya minum obat
     function checkMedicineTimes() {
         let now = new Date();
         let currentTime = `${String(now.getHours()).padStart(2, "0")}:${String(now.getMinutes()).padStart(2, "0")}`;
-        let medicines = JSON.parse(localStorage.getItem("medicines")) || [];
+        let schedules = JSON.parse(localStorage.getItem("schedules")) || [];
 
-        medicines.forEach(med => {
-            if (med.timeValues.includes(currentTime)) {
-                showNotification(`Waktunya minum obat: ${med.medicineName}`);
+        schedules.forEach(schedule => {
+            if (`${String(schedule.jam).padStart(2, "0")}:${String(schedule.menit).padStart(2, "0")}` === currentTime) {
+                showNotification(`Waktunya minum obat: ${schedule.nama}`);
             }
         });
     }
@@ -96,20 +104,76 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     setInterval(checkMedicineTimes, 60000); // Periksa setiap 1 menit
-    displayMedicines();
+    displaySchedules();
 });
-
-// 🚀 Aktifkan ikon navbar berdasarkan halaman yang dibuka
 document.addEventListener("DOMContentLoaded", function () {
-    let currentPage = window.location.pathname.split("/").pop();
-    let iconMap = {
-        "2.homepage.html": "home-icon",
-        "profil.html": "profile-icon",
-        "3.tambah.html": "add-icon"
-    };
+    const medicineDetailModal = new bootstrap.Modal(document.getElementById("medicineDetailModal"));
+    let selectedMedicineIndex = null;
 
-    if (iconMap[currentPage]) {
-        document.getElementById(iconMap[currentPage]).classList.add("active");
-        document.getElementById(iconMap[currentPage]).style.color = "white"; // Ubah warna ikon saat aktif
+    // Tampilkan modal saat item obat diklik
+    scheduleList.addEventListener("click", function (e) {
+        if (e.target.closest(".medicine-item")) {
+            selectedMedicineIndex = e.target.closest(".medicine-item").dataset.index;
+            let schedules = JSON.parse(localStorage.getItem("schedules")) || [];
+            let medicine = schedules[selectedMedicineIndex];
+
+            document.getElementById("detailMedicineName").textContent = medicine.nama;
+            document.getElementById("detailTime").textContent = `${String(medicine.jam).padStart(2, "0")}:${String(medicine.menit).padStart(2, "0")}`;
+            document.getElementById("detailCondition").textContent = medicine.keterangan || "Tidak ada keterangan";
+
+            medicineDetailModal.show();
+        }
+    });
+
+    // Hapus data obat
+    document.getElementById("deleteMedicine").addEventListener("click", function () {
+        if (selectedMedicineIndex !== null) {
+            let schedules = JSON.parse(localStorage.getItem("schedules")) || [];
+            schedules.splice(selectedMedicineIndex, 1);
+            localStorage.setItem("schedules", JSON.stringify(schedules));
+            displaySchedules();
+            medicineDetailModal.hide();
+            showNotification("Jadwal obat berhasil dihapus!");
+        }
+    });
+
+    // Edit data obat
+    document.getElementById("editMedicine").addEventListener("click", function () {
+        if (selectedMedicineIndex !== null) {
+            let schedules = JSON.parse(localStorage.getItem("schedules")) || [];
+            let medicine = schedules[selectedMedicineIndex];
+
+            document.getElementById("medicineName").value = medicine.nama;
+            document.getElementById("condition").value = medicine.keterangan || "";
+            document.querySelector(".time-input").value = `${String(medicine.jam).padStart(2, "0")}:${String(medicine.menit).padStart(2, "0")}`;
+
+            // Hapus data lama dan buka modal edit
+            schedules.splice(selectedMedicineIndex, 1);
+            localStorage.setItem("schedules", JSON.stringify(schedules));
+            displaySchedules();
+            medicineDetailModal.hide();
+            scheduleModal.show();
+        }
+    });
+
+    // Fungsi untuk menampilkan daftar obat yang tersimpan
+    function displaySchedules() {
+        let schedules = JSON.parse(localStorage.getItem("schedules")) || [];
+        scheduleList.innerHTML = "";
+
+        schedules.forEach((schedule, index) => {
+            let item = document.createElement("div");
+            item.classList.add("medicine-item");
+            item.dataset.index = index;
+            item.innerHTML = `
+                <strong>${schedule.nama}</strong> 
+                <span>${String(schedule.jam).padStart(2, "0")}:${String(schedule.menit).padStart(2, "0")}</span>
+            `;
+            scheduleList.appendChild(item);
+        });
+
+        scheduleList.style.display = schedules.length ? "block" : "none";
     }
+
+    displaySchedules();
 });
