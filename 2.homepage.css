@@ -1,110 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 body {
-    background-color: #ffffff;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+    background-color: #f8f9fa;
+    font-family: "Poppins", sans-serif;
 }
 
 .container {
-    padding: 20px;
-    text-align: left;
+    max-width: 500px;
 }
-
-.header {
-    background: #80d6ff;
-    padding: 15px;
-    border-radius: 10px;
-}
-
-.medicine-list {
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-.medicine-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.medicine-item:last-child {
-    border-bottom: none;
-}
-
-.icon {
-    width: 30px; /* Ukuran ikon diperbesar */
-    height: auto;
-}
-
-.medicine-info {
-    flex-grow: 1;
-    margin-left: 10px;
-}
-
-.medicine-info p {
-    margin: 0;
-    font-size: 12px;
-    color: gray;
-}
-
-.time-select {
-    padding: 5px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    background: white;
-    font-size: 14px;
-    cursor: pointer;
-}
-
-
-.btn {
-    background: #80d6ff;
-    border: none;
-    padding: 10px;
-    margin: 5px;
-    border-radius: 10px;
-    width: 45%;
-}
-
-.icon {
-    width: 30px; /* Sesuaikan ukuran ikon */
-    height: auto;
-}
-.button-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px; /* Jarak antar tombol */
-    justify-content: center;
-}
-
-.btn {
-    display: flex;
-    align-items: center; /* Membuat ikon dan teks sejajar */
-    justify-content: flex-start; 
-    gap: 8px; /* Jarak antara ikon dan teks */
-    background: #80d6ff;
-    border: none;
-    padding: 12px 16px;
-    border-radius: 12px;
-    width: 121px;
-    height: 50px; 
-    text-align: left; 
-    font-size: 14px;
-    font-weight: bold;
-    cursor: pointer;
-}
-
-.btn img {
-    width: 20px; /* Ukuran ikon */
-    height: auto;
-}
-
-/* NAVBAR */
+/* Navbar */
 .navbar {
     background: #80d6ff;
     padding: 10px;
@@ -126,12 +29,11 @@ body {
     transition: filter 0.3s ease-in-out;
 }
 
-/* Warna ikon navbar berubah saat halaman aktif */
 .nav-icon.active img {
     filter: brightness(0) invert(1);
 }
 
-/* Icon tambah lebih besar */
+
 .ad-button {
     background: white;
     padding: 10px;
@@ -143,53 +45,96 @@ body {
     width: 35px;
     height: auto;
 }
-/* Jarak antar ikon lebih besar */
+
 .nav-icon {
     margin: 0 20px;
 }
-
-/* List Obat */
-.medicine-list {
-    background: white;
-    padding: 10px;
-    border-radius: 10px;
-    margin-top: 10px;
-}
-
-.medicine-item {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 10px;
-    border-bottom: 1px solid #ddd;
-}
-
-.medicine-item:last-child {
-    border-bottom: none;
-}
-
 .icon {
-    width: 35px; /* Ikon diperbesar */
+    width: 35px; 
     height: auto;
 }
 
-.medicine-info {
-    flex-grow: 1;
-    margin-left: 10px;
+.card {
+    background-color: #00BFFF !important; 
+    border-radius: 20px;
+    width: 100%;
+    height: auto;
+    margin-top: -10px;
+    padding: 15px;
+    border: none; 
+    box-shadow: none; 
 }
 
-.medicine-info p {
-    margin: 0;
-    font-size: 12px;
-    color: gray;
+#nearestSchedule {
+    background-color: #00BFFF !important; 
+    color: white;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    border: none; 
+    box-shadow: none; 
 }
 
-.time-select {
-    padding: 5px;
+
+#nearestSchedule div {
+    background-color: inherit !important;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+
+.icon-pill {
+    width: 30px;
+}
+
+
+.icon-btn {
+    width: 20px;
+}
+
+
+#scheduleList .alert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+
+.time-box {
+    display: flex;
+    align-items: center;
+    background: #ddd;
+    padding: 5px 10px;
     border-radius: 5px;
-    border: 1px solid #ccc;
-    background: white;
-    font-size: 14px;
-    cursor: pointer;
 }
 
+.time-box img {
+    width: 15px;
+    margin-left: 5px;
+}
+
+.btn-custom {
+    background-color: #00bfff; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0095cc; 
+}
+
+.icon-btn {
+    width: 20px;  
+    height: auto;
+}
