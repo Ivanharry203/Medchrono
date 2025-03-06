@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cari Jadwal Obat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap">
+    <link rel="stylesheet" href="5.cari.css">
+    <script defer src="5.cari.js"></script>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <button class="back-btn" onclick="window.history.back();">⬅</button>
+            <h1>Cari Jadwal</h1>
+        </header>
+
+        <div class="search-box">
+            <input type="text" id="searchInput" placeholder="Cari nama obat...">
+            <button id="searchButton">🔍</button>
+        </div>
+
+        <div id="scheduleList" class="schedule-list"></div>
+
+        <footer>Versi Aplikasi 1.10.0</footer>
+    </div>
+</body>
+</html>
