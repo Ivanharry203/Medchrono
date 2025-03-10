@@ -10,7 +10,8 @@ body {
 }
 
 .container {
-    width: 100%;
+    width: 140%;
+    height: 100%;
     max-width: 400px;
     background: white;
     border-radius: 10px;
@@ -45,7 +46,7 @@ h1 {
     display: flex;
     margin-top: 20px;
     border: 1px solid #000;
-    border-radius: 5px;
+    border-radius: 20px;
     overflow: hidden;
 }
 
