@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="4.profil.css">
+</head>
+<body>
+    <div class="container profile-container">
+        <div class="profile-pic">
+            <span>&#128100;</span>
+        </div>
+        <h4 id="profile-name">Belum ada Akun</h4>
+        <div class="card">
+            <div class="card-body">
+                <h6 class="card-title"><strong>Quote Of The Day</strong></h6>
+                <p class="card-text">"Kesehatan adalah investasi terbaik untuk masa depan cerah."</p>
+            </div>
+        </div>
+        <button class="btn btn-light btn-profile" id="profile-btn" data-bs-toggle="modal" data-bs-target="#profileModal">
+            <span>&#9998;</span> <span id="btn-text">Tambah Profile</span>
+        </button>
+    </div>
+
+    <!-- Modal Tambah/Edit Profile -->
+    <div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="profileModalLabel">Buat Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="text" id="inputName" class="form-control" placeholder="Masukkan Nama Anda">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Batal</button>
+                    <button type="button" class="btn btn-primary" id="saveProfile">Simpan</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <nav class="navbar">
+        <a href="2.homepage.html" class="nav-icon" id="home-icon">
+            <img src="icon/home.png" class="icon">
+        </a>
+        <a href="3.tambah.html" class="nav-icon center-icon" id="add-icon">
+            <div class="add-button">
+                <img src="icon/tambah.png" class="icon">
+            </div>
+        </a>
+        <a href="4.profil.html" class="nav-icon" id="profile-icon">
+            <img src="icon/profil.png" class="icon">
+        </a>
+    </nav>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="4.profil.js"></script>
+</body>
+</html>
