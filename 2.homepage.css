@@ -54,6 +54,20 @@ body {
     height: auto;
 }
 
+/* settings */
+.settings-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000; /* Ensure it's on top */
+}
+
+.settings-btn img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
 .card {
     background-color: #00BFFF !important; 
     border-radius: 0px 0px 20px 20px;
