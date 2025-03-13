@@ -4,18 +4,19 @@ document.addEventListener("DOMContentLoaded", function () {
     const medicineForm = document.getElementById("medicineForm");
     const scheduleList = document.getElementById("scheduleList");
     const timeInputs = document.getElementById("timeInputs");
+    const medicineDetailModal = new bootstrap.Modal(document.getElementById("medicineDetailModal"));
+    let selectedMedicineIndex = null;
 
     // Buka modal tambah jadwal obat
     addScheduleBtn.addEventListener("click", function () {
-        scheduleModal.show();
-    });
-
-    // Reset form saat tombol reset ditekan
-    document.getElementById("resetForm").addEventListener("click", function () {
         medicineForm.reset();
-        document.querySelectorAll(".time-input").forEach((input, index) => {
-            if (index !== 0) input.parentElement.remove();
-        });
+        timeInputs.innerHTML = `
+            <div class="input-group mb-2">
+                <input type="time" class="form-control time-input" required>
+                <button type="button" class="btn btn-outline-success add-time">+</button>
+            </div>`;
+        selectedMedicineIndex = null; // Reset index agar tidak mengedit data lama
+        scheduleModal.show();
     });
 
     // Tambah atau hapus input waktu
@@ -33,7 +34,7 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     });
 
-    // Simpan data ke localStorage
+    // Simpan atau edit data ke localStorage
     medicineForm.addEventListener("submit", function (event) {
         event.preventDefault();
         const medicineName = document.getElementById("medicineName").value.trim();
@@ -44,18 +45,20 @@ document.addEventListener("DOMContentLoaded", function () {
         if (medicineName && timeValues.length > 0) {
             let schedules = JSON.parse(localStorage.getItem("schedules")) || [];
 
+            if (selectedMedicineIndex !== null) {
+                // Jika sedang mengedit, hapus data lama dari array
+                schedules.splice(selectedMedicineIndex, 1);
+            }
+
             timeValues.forEach(time => {
                 let [jam, menit] = time.split(":").map(Number);
                 schedules.push({ nama: medicineName, jam, menit, keterangan: condition || additionalInfo });
             });
 
             localStorage.setItem("schedules", JSON.stringify(schedules));
-
             displaySchedules();
             scheduleModal.hide();
             showNotification(`Jadwal obat "${medicineName}" berhasil disimpan!`);
-            
-            // Memastikan homepage juga update
             window.dispatchEvent(new Event("storage"));
         } else {
             alert("Harap isi semua data dengan benar!");
@@ -67,9 +70,10 @@ document.addEventListener("DOMContentLoaded", function () {
         let schedules = JSON.parse(localStorage.getItem("schedules")) || [];
         scheduleList.innerHTML = "";
 
-        schedules.forEach(schedule => {
+        schedules.forEach((schedule, index) => {
             let item = document.createElement("div");
             item.classList.add("medicine-item");
+            item.dataset.index = index;
             item.innerHTML = `<strong>${schedule.nama}</strong> <span>${String(schedule.jam).padStart(2, "0")}:${String(schedule.menit).padStart(2, "0")}</span>`;
             scheduleList.appendChild(item);
         });
@@ -104,13 +108,8 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     setInterval(checkMedicineTimes, 60000); // Periksa setiap 1 menit
-    displaySchedules();
-});
-document.addEventListener("DOMContentLoaded", function () {
-    const medicineDetailModal = new bootstrap.Modal(document.getElementById("medicineDetailModal"));
-    let selectedMedicineIndex = null;
 
-    // Tampilkan modal saat item obat diklik
+    // Tampilkan modal detail saat item obat diklik
     scheduleList.addEventListener("click", function (e) {
         if (e.target.closest(".medicine-item")) {
             selectedMedicineIndex = e.target.closest(".medicine-item").dataset.index;
@@ -145,35 +144,20 @@ document.addEventListener("DOMContentLoaded", function () {
 
             document.getElementById("medicineName").value = medicine.nama;
             document.getElementById("condition").value = medicine.keterangan || "";
-            document.querySelector(".time-input").value = `${String(medicine.jam).padStart(2, "0")}:${String(medicine.menit).padStart(2, "0")}`;
 
-            // Hapus data lama dan buka modal edit
-            schedules.splice(selectedMedicineIndex, 1);
-            localStorage.setItem("schedules", JSON.stringify(schedules));
-            displaySchedules();
-            medicineDetailModal.hide();
+            timeInputs.innerHTML = "";
+            let timeInput = document.createElement("div");
+            timeInput.classList.add("input-group", "mb-2");
+            timeInput.innerHTML = `
+                <input type="time" class="form-control time-input" value="${String(medicine.jam).padStart(2, "0")}:${String(medicine.menit).padStart(2, "0")}" required>
+                <button type="button" class="btn btn-outline-success add-time">+</button>
+            `;
+            timeInputs.appendChild(timeInput);
+
             scheduleModal.show();
+            medicineDetailModal.hide();
         }
     });
-
-    // Fungsi untuk menampilkan daftar obat yang tersimpan
-    function displaySchedules() {
-        let schedules = JSON.parse(localStorage.getItem("schedules")) || [];
-        scheduleList.innerHTML = "";
-
-        schedules.forEach((schedule, index) => {
-            let item = document.createElement("div");
-            item.classList.add("medicine-item");
-            item.dataset.index = index;
-            item.innerHTML = `
-                <strong>${schedule.nama}</strong> 
-                <span>${String(schedule.jam).padStart(2, "0")}:${String(schedule.menit).padStart(2, "0")}</span>
-            `;
-            scheduleList.appendChild(item);
-        });
-
-        scheduleList.style.display = schedules.length ? "block" : "none";
-    }
 
     displaySchedules();
 });
