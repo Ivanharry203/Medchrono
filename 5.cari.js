@@ -6,9 +6,9 @@ document.addEventListener("DOMContentLoaded", function () {
     // Cek apakah data ada di localStorage, jika tidak, buat data dummy
     if (!localStorage.getItem("schedules")) {
         localStorage.setItem("schedules", JSON.stringify([
-            { nama: "Paracetamol", waktu: ["08:00", "20:00"], keterangan: "Sebelum makan" },
-            { nama: "Amoxicillin", waktu: ["10:00"], keterangan: "Sesudah makan" },
-            { nama: "Ibuprofen", waktu: ["14:00"], keterangan: "Saat sakit" }
+            { nama: "Paracetamol", jam: 8, menit: 0, keterangan: "Sebelum makan" },
+            { nama: "Amoxicillin", jam: 10, menit: 30, keterangan: "Sesudah makan" },
+            { nama: "Ibuprofen", jam: 14, menit: 45, keterangan: "Saat sakit" }
         ]));
     }
 
@@ -28,9 +28,13 @@ document.addEventListener("DOMContentLoaded", function () {
         filteredSchedules.forEach(schedule => {
             let item = document.createElement("div");
             item.classList.add("schedule-item");
+
+            // Format jam dan menit menjadi hh:mm
+            let waktuFormatted = `${String(schedule.jam).padStart(2, "0")}:${String(schedule.menit).padStart(2, "0")}`;
+
             item.innerHTML = `
                 <strong>${schedule.nama}</strong><br>
-                <span>🕒 Waktu: ${schedule.waktu ? schedule.waktu.join(", ") : "-"}</span><br>
+                <span>🕒 Waktu: ${waktuFormatted}</span><br>
                 <span>📌 Keterangan: ${schedule.keterangan || "-"}</span>
             `;
             scheduleList.appendChild(item);
