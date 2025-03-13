@@ -56,17 +56,17 @@ body {
 
 .card {
     background-color: #00BFFF !important; 
-    border-radius: 20px;
+    border-radius: 0px 0px 20px 20px;
     width: 100%;
     height: auto;
-    margin-top: -10px;
+    margin-top: 0px;
     padding: 15px;
     border: none; 
     box-shadow: none; 
 }
 
 #nearestSchedule {
-    background-color: #00BFFF !important; 
+    background-color: #cdf2ff !important; 
     color: white;
     border-radius: 15px;
     padding: 10px;
@@ -123,7 +123,7 @@ body {
     border: none;
     padding: 10px 15px;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: nrmal;
     display: flex;
     align-items: center;
     justify-content: center;
