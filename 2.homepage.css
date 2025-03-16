@@ -63,8 +63,8 @@ body {
 }
 
 .settings-btn img {
-    width: 40px;
-    height: 40px;
+    width: 30px;
+    height: 30px;
     cursor: pointer;
 }
 
@@ -86,6 +86,7 @@ body {
     padding: 10px;
     display: flex;
     align-items: center;
+    justify-content: space-between;
     border: none; 
     box-shadow: none; 
 }
@@ -120,7 +121,7 @@ body {
 
 .time-box {
     display: flex;
-    align-items: center;
+    align-items: right;
     background: #ddd;
     padding: 5px 10px;
     border-radius: 5px;
