@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Homepage Jadwal Obat</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="2.homepage.css">
+</head>
+<body>
+    <div class="card p-3 bg-info text-white rounded-lg">
+        <h4>Jadwal Terdekat!</h4>
+        <div id="nearestSchedule" class="mt-2 p-2 text-dark rounded d-flex align-items-right">
+            <h4>jadwal Terdekat!</h4>
+            <img src="../icon/list-obat.png" class="icon-pill me-2">
+            <div>
+            </div>
+        </div>
+    </div>
+<div class="container mt-4">
+
+    
+    <div class="d-flex justify-content-between mt-3">
+        <button class="btn btn-custom flex-grow-1 me-2 d-flex align-items-center" onclick="window.location.href='../5.cari/5.cari.html'">
+            <img src="../icon/cari.png" class="icon-btn me-2"> Cari Jadwal
+        </button>
+        <button class="btn btn-custom flex-grow-1 d-flex align-items-center" onclick="window.location.href='../7.cekbpom/7.cekbpom.html'">
+            <img src="../icon/cek-bpom.png" class="icon-btn me-2"> Cek Halal
+        </button>
+    </div>
+    
+    
+
+    <!-- Daftar Jadwal Obat -->
+    <h5 class="mt-4">Daftar Jadwal Minum Obat</h5>
+    <div id="scheduleList" class="mt-2"></div>
+</div>
+
+<!-- Navbar Bawah -->
+<nav class="navbar">
+    <a href="2.homepage.html" class="nav-icon" id="home-icon">
+        <img src="../icon/home.png" class="icon">
+    </a>
+    <a href="../3.tambah/3.tambah.html" class="nav-icon center-icon" id="add-icon">
+        <div class="add-button">
+            <img src="../icon/tambah.png" class="icon">
+        </div>
+    </a>
+    <a href="../4.profil/4.profil.html" class="nav-icon" id="profile-icon">
+        <img src="../icon/profil.png" class="icon">
+    </a>
+</nav>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="2.homepage.js"></script>
+
+</body>
+</html>
