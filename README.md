@@ -50,9 +50,10 @@ XAMPP adalah software gratis yang menggabungkan Apache, MySQL/MariaDB, PHP, dan 
 
 ## 📸 Contoh Tampilan
 
-Saat XAMPP sudah berjalan dan project diakses, tampilan awal akan muncul seperti ini:
+Saat XAMPP sudah berjalan dan project diakses, contoh tampilan akan muncul seperti ini:
 
-![image](https://github.com/user-attachments/assets/c9af7c4e-4af2-4d31-aa3f-f73cbb4d1808)
+![image](https://github.com/user-attachments/assets/cd7027c4-d83c-4682-9d58-bf1b16cb4f0f)
+
 
 ## ⚡ Troubleshooting
 - Pastikan tidak ada aplikasi lain yang memakai port **80** dan **443** (seperti Skype, IIS).
