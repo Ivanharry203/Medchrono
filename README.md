@@ -44,7 +44,7 @@ XAMPP adalah software gratis yang menggabungkan Apache, MySQL/MariaDB, PHP, dan 
    Jika websitenya butuh database:
    - Buka `http://localhost/phpmyadmin`
    - Buat database baru sesuai konfigurasi project kamu.
-   - Import file `.sql` kalau tersedia.
+   - Import file `.sql` yang sudah tersedia.
 
 ---
 
