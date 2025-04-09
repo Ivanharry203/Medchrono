@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profil</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="4.profil.css">
+</head>
+<body>
+    <div class="container profile-container text-center mt-5">
+        <div class="profile-picture">
+            <img src="../icon.png" alt="Foto Profil" class="rounded-circle" width="100">
+        </div>
+
+        <h2>Profil Pengguna</h2>
+        <div id="profil-box">
+          <p><strong>Nama:</strong> <span id="nama"></span></p>
+          <p><strong>Usia:</strong> <span id="usia"></span> tahun</p>
+        </div>
+
+        <div class="card mt-3">
+            <div class="card-body">
+                <h6 class="card-title text-primary"><strong>Quote Hari Ini</strong></h6>
+                <p class="card-text">"Kesehatan adalah investasi terbaik untuk masa depan cerah."</p>
+            </div>
+        </div>
+
+        <div class="mt-3">
+          <button onclick="logout()" class="btn btn-danger logout-button">Logout</button>
+       </div>
+       
+        <div class="profile-menu">
+          <div class="menu-item" data-bs-toggle="modal" data-bs-target="#helpModal">
+              <img class="menu-icon" src="../icon/bantuan.png" alt="Bantuan"> Bantuan
+              <span class="arrow">➤</span>
+          </div>
+          <div class="menu-item" data-bs-toggle="modal" data-bs-target="#privacyModal">
+              <img class="menu-icon" src="../icon/kebijakanPrivasi.png" alt="Kebijakan Privasi"> Kebijakan Privasi
+              <span class="arrow">➤</span>
+          </div>
+          <div class="menu-item" data-bs-toggle="modal" data-bs-target="#reportModal">
+              <img class="menu-icon" src="../icon/laporan.png" alt="Laporan"> Laporan
+              <span class="arrow">➤</span>
+          </div>
+          <div class="menu-item" data-bs-toggle="modal" data-bs-target="#infoModal">
+              <img class="menu-icon" src="../icon/informasi.png" alt="Informasi Aplikasi"> Informasi Aplikasi
+              <span class="arrow">➤</span>
+          </div>
+      </div>
+      
+    </div>
+  
+<div class="modal fade" id="helpModal" tabindex="-1" aria-labelledby="helpModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="helpModalLabel">Bantuan</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Jika Anda mengalami kesulitan, silakan hubungi layanan pelanggan kami atau kunjungi halaman FAQ untuk informasi lebih lanjut.
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="privacyModal" tabindex="-1" aria-labelledby="privacyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="privacyModalLabel">Kebijakan Privasi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Data pribadi Anda kami lindungi dengan enkripsi yang aman dan tidak akan dibagikan kepada pihak ketiga tanpa izin Anda.
+          </div>
+      </div>
+  </div>
+</div>
+
+<div class="modal fade" id="reportModal" tabindex="-1" aria-labelledby="reportModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="reportModalLabel">Laporan</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Anda dapat melaporkan bug atau masalah lainnya melalui fitur ini. Tim kami akan segera menindaklanjuti laporan Anda.
+          </div>
+      </div>
+  </div>
+</div>
+
+
+<div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+      <div class="modal-content">
+          <div class="modal-header">
+              <h5 class="modal-title" id="infoModalLabel">Informasi Aplikasi</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          </div>
+          <div class="modal-body">
+              Aplikasi ini dirancang untuk membantu pengguna dalam mengelola jadwal dan informasi pribadi dengan mudah dan efisien.
+          </div>
+      </div>
+  </div>
+</div>
+
+
+    <nav class="navbar">
+        <a href="../2.homepage/2.homepage.html" class="nav-icon" id="home-icon">
+            <img src="../icon/home.png" class="icon">
+        </a>
+        <a href="../3.tambah/3.tambah.html" class="nav-icon center-icon" id="add-icon">
+            <div class="add-button">
+                <img src="../icon/tambah.png" class="icon">
+            </div>
+        </a>
+        <a href="../4.profil/4.profil.html" class="nav-icon" id="profile-icon">
+            <img src="../icon/profil.png" class="icon">
+        </a>
+    </nav>
+    <script>
+        
+        fetch('../0.php/ambil_profil.php')
+          .then(response => response.json())
+          .then(data => {
+            if (data.error) {
+              alert(data.error);
+              window.location.href = '../0.login/login.html';
+            } else {
+              document.getElementById('nama').innerText = data.nama;
+              document.getElementById('usia').innerText = data.usia;
+            }
+          });
+    
+        function logout() {
+          fetch('../0.php/logout.php')
+            .then(() => window.location.href = '../0.login/login.html');
+        }
+      </script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="4.profil.js"></script>
+</body>
+</html>

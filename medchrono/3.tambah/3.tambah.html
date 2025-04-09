@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Tambah Jadwal Obat</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="3.tambah.css">
+</head>
+<body>
+<div class="container mt-4">
+    <div class="text-center">
+        <h2 class="fw-bold">Tambah Jadwal Obat</h2>
+    </div>
+
+    <div class="d-flex justify-content-center mt-4">
+        <button id="addScheduleBtn" class="btn btn-light btn-lg border">
+            <img src="../icon/tambah-jadwal.png" alt="Tambah" width="50">
+        </button>
+    </div>
+
+    
+    <div id="popupForm" class="popup-form">
+        <form id="jadwalForm" action="../0.php/tambah_jadwal.php" method="POST" class="form-container">
+            <h4 class="text-center mb-3">Tambah Jadwal Baru</h4>
+            
+            <input type="text" name="nama_obat" placeholder="Nama Obat" required class="form-control mb-2">
+            <textarea name="keterangan_kondisi" placeholder="Keterangan Kondisi" required class="form-control mb-2"></textarea>
+            <label for="waktu_minum">Waktu Minum:</label>
+            <input type="time" name="waktu_minum" required class="form-control mb-2">
+            <textarea name="keterangan_lainnya" placeholder="Keterangan Lainnya (Opsional)" class="form-control mb-2"></textarea>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-success">Simpan</button>
+                <button type="button" id="closePopup" class="btn btn-danger">Batal</button>
+            </div>
+        </form>
+    </div>
+    <h2 style="margin-top:30px;">Jadwal Tersedia</h2>
+    <div id="jadwalList" class="jadwal-list">
+      <!-- Card jadwal akan di-load di sini -->
+    </div>
+   
+</div>
+
+
+<div id="modalDetail" class="modal">
+    <div class="modal-content">
+        <button class="close-btn" onclick="window.location.href='../3.tambah/3.tambah.html'">&times;</button>
+      <h2 id="modalNamaObat"></h2>
+      <p><strong>Keterangan Kondisi:</strong> <span id="modalKondisi"></span></p>
+      <p><strong>Waktu Minum:</strong> <span id="modalWaktu"></span></p>
+      <p><strong>Keterangan Lainnya:</strong> <span id="modalLainnya"></span></p>
+      <button id="editButton">Edit Jadwal</button>
+      <button id="hapusButton" style="background-color:red;">Hapus Jadwal</button>
+    </div>
+  </div>
+
+<nav class="navbar">
+    <a href="../2.homepage/2.homepage.html" class="nav-icon" id="home-icon">
+        <img src="../icon/home.png" class="icon">
+    </a>
+    <a href="3.tambah.html" class="nav-icon center-icon" id="add-icon">
+        <div class="add-button">
+            <img src="../icon/tambah.png" class="icon">
+        </div>
+    </a>
+    <a href="../4.profil/4.profil.html" class="nav-icon" id="profile-icon">
+        <img src="../icon/profil.png" class="icon">
+    </a>
+</nav>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="3.tambah.js"></script>
+</body>
+</html>

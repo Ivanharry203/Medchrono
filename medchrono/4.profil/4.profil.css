@@ -1,0 +1,164 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f8f9fa;
+    color: #333;
+    text-align: center;
+    margin-top: 30px;
+    padding: 0;
+}
+
+
+.profile-picture {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 10px;
+    background: white;
+}
+
+.profile-icon {
+    font-size: 60px;
+    color: #555;
+}
+
+#profile-name {
+    font-size: 22px;
+    font-weight: 600;
+    color: #333;
+}
+
+
+.card {
+    background: #f8f9fa;
+    border: none;
+    border-radius: 15px;
+    margin-top: 15px;
+    padding: 15px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.card-title {
+    font-weight: bold;
+    color: #007aff;
+}
+
+.card-text {
+    color: #555;
+}
+
+.btn-profile {
+    background: #007aff;
+    color: white;
+    border-radius: 30px;
+    padding: 10px 20px;
+    margin-top: 15px;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+.btn-profile:hover {
+    background: #fdfeff;
+    transform: scale(1.05);
+}
+
+.profile-menu {
+    margin-top: 20px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: #fff;
+    border-radius: 15px;
+    margin: 5px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+}
+
+.menu-item:hover {
+    background: #f1f1f1;
+}
+
+.menu-icon {
+    font-size: 20px;
+    margin-right: 10px;
+}
+
+.arrow {
+    font-size: 18px;
+    color: #888;
+}
+
+.navbar {
+    background: #80d6ff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nav-icon img {
+    width: 25px;
+    height: auto;
+    transition: filter 0.3s ease-in-out;
+}
+
+.nav-icon.active img {
+    filter: brightness(0) invert(1);
+}
+
+
+.ad-button {
+    background: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.add-button img {
+    width: 35px;
+    height: auto;
+}
+
+.nav-icon {
+    margin: 0 20px;
+}
+.icon {
+    width: 35px; 
+    height: auto;
+}
+
+@media screen and (min-width: 1024px) {
+    .navbar {
+        width: 300px; 
+    }
+}
+
+.logout-button {
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 25px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s ease;
+
+}
+
+.logout-button:hover {
+    background-color: #c82333;
+}

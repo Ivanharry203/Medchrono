@@ -1,0 +1,89 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #00bfff;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.container, .login-container {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 400px;
+  text-align: center;
+  position: relative;
+}
+
+.container img, .login-container img {
+  width: 30%;
+  height: auto;
+  object-fit: cover;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="number"] {
+  padding: 0.8rem 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="number"]:focus {
+  border-color: #74ebd5;
+}
+
+button {
+  padding: 0.8rem 1rem;
+  background: #00bfff;
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+button:hover {
+  background: #4db8a6;
+}
+
+p {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #555;
+}
+
+a {
+  color: #4db8a6;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+.container h2{
+  color:#00bfff;
+}
