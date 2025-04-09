@@ -1,0 +1,224 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #f8f9fa;
+  color: #333;
+  text-align: center;
+  margin-top: 30px;
+  padding: 0;
+}
+.popup-form {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 9999;
+    padding-top: 50px;
+}
+
+.form-container {
+    background: white;
+    max-width: 400px;
+    margin: auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+.navbar {
+    background: #80d6ff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nav-icon img {
+    width: 25px;
+    height: auto;
+    transition: filter 0.3s ease-in-out;
+}
+
+.nav-icon.active img {
+    filter: brightness(0) invert(1);
+}
+
+
+.ad-button {
+    background: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.add-button img {
+    width: 35px;
+    height: auto;
+}
+
+.nav-icon {
+    margin: 0 20px;
+}
+.icon {
+    width: 35px; 
+    height: auto;
+}
+
+#popupForm, #modalDetail {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); 
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+  }
+  
+  
+  .popup-content, .modal-content {
+    background: #ffffff;
+    padding: 2rem;
+    border-radius: 1rem;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    position: absolute; 
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .popup-content input[type="text"],
+  .popup-content textarea,
+  .popup-content select,
+  .modal-content input[type="text"],
+  .modal-content textarea,
+  .modal-content select {
+    width: 100%;
+    padding: 0.8rem;
+    margin-top: 0.5rem;
+    margin-bottom: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    box-sizing: border-box;
+    font-size: 1rem;
+  }
+  
+  .popup-content button,
+  .modal-content button {
+    background-color: #4CAF50;
+    color: white;
+    padding: 0.7rem 1.5rem;
+    margin-top: 1rem;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  
+  .popup-content button:hover,
+  .modal-content button:hover {
+    background-color: #45a049;
+  }
+  
+  .card {
+    background: #ffffff;
+    border-radius: 1rem;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    padding: 1.5rem;
+    margin: 1rem 0;
+    transition: transform 0.2s, box-shadow 0.2s;
+    cursor: pointer;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+  }
+  
+  .card h3 {
+    margin: 0;
+    font-size: 1.5rem;
+    color: #333;
+  }
+  
+  .card p {
+    margin: 0.5rem 0 0 0;
+    color: #666;
+    font-size: 1rem;
+  }
+.modal {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.5); 
+  }
+  
+
+  .modal-content {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    position: relative;
+  }
+  
+  
+  .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+  }
+  .container h2 {
+    color: #80d6ff;
+    font-size: 28px;
+    margin-bottom: 20px;
+    font-family: 'Poppins', sans-serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+}
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+  }
+  
+  
+  @media (max-width: 600px) {
+    .popup-content, .modal-content {
+      width: 90%;
+      padding: 1.5rem;
+    }
+  }
+  
+@media screen and (min-width: 1024px) {
+    .navbar {
+        width: 300px; 
+    }
+}

@@ -1,0 +1,302 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+body {
+    background-color: #f8f9fa;
+    font-family: "Poppins", sans-serif;
+}
+
+.container {
+    max-width: 500px;
+}
+.navbar {
+    background: #80d6ff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 80%;
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 30px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.nav-icon img {
+    width: 25px;
+    height: auto;
+    transition: filter 0.3s ease-in-out;
+}
+
+.nav-icon.active img {
+    filter: brightness(0) invert(1);
+}
+
+
+
+
+.ad-button {
+    background: white;
+    padding: 10px;
+    border-radius: 50%;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.add-button img {
+    width: 35px;
+    height: auto;
+}
+
+.nav-icon {
+    margin: 0 20px;
+}
+.icon {
+    width: 35px; 
+    height: auto;
+}
+
+.settings-btn {
+    position: fixed;
+    top: 15px;
+    right: 15px;
+    z-index: 1000; 
+}
+
+.settings-btn img {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+
+.card {
+    background-color: #00BFFF !important; 
+    border-radius: 0px 0px 20px 20px;
+    width: 100%;
+    height: auto;
+    margin-top: 0px;
+    padding: 15px;
+    border: none; 
+    box-shadow: none; 
+}
+
+#nearest-schedule-content {
+    background-color: #00BFFF !important; 
+    color: #00BFFF;
+    border-radius: 15px;
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: none; 
+    box-shadow: none; 
+}
+
+
+#nearestSchedule div {
+    background-color: inherit !important;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+
+.icon-pill {
+    width: 30px;
+}
+
+
+.icon-btn {
+    width: 20px;
+}
+
+
+#scheduleList .alert {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+}
+
+
+.time-box {
+    display: flex;
+    align-items: right;
+    background: #ddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+.time-box img {
+    width: 15px;
+    margin-left: 5px;
+}
+
+.btn-custom {
+    background-color: #00bfff; 
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: nrmal;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease;
+}
+
+.btn-custom:hover {
+    background-color: #0095cc; 
+}
+
+.icon-btn {
+    width: 20px;  
+    height: auto;
+}
+
+@media screen and (min-width: 1024px) {
+    .navbar {
+        width: 300px; 
+    }
+    .card {
+        background-color: #00BFFF !important; 
+        border-radius: 0px 0px 20px 20px;
+        width: 100%;
+        height: auto;
+        margin-top: 0px;
+        padding: 15px;
+        border: none; 
+        box-shadow: none; 
+        
+    }
+}
+@media screen and (min-width: 1440px) {
+    .navbar {
+        width: 300px; 
+    }
+    .card {
+        background-color: #00BFFF !important; 
+        border-radius: 0px 0px 20px 20px;
+        width: 80%;
+        height: auto;
+        margin-top: 0px;
+        padding: 15px;
+        border: none; 
+        box-shadow: none; 
+        right: -30%;
+    }
+}
+@media screen and (min-width: 2560px) {
+    .navbar {
+        width: 300px; 
+    }
+    .card {
+        background-color: #00BFFF !important; 
+        border-radius: 0px 0px 20px 20px;
+        width: 70%;
+        height: auto;
+        margin-top: 0px;
+        padding: 15px;
+        border: none; 
+        box-shadow: none; 
+        right: -20%;
+    }
+}
+.nearest-card, .jadwal-card {
+    background-color: #e3f8ff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    color: #000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.jadwal-info {
+    display: flex;
+    align-items: center;
+}
+
+.jadwal-info img {
+    width: 30px;
+    margin-right: 10px;
+}
+
+.jam-box {
+    background-color: #ddd;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-weight: bold;
+}
+#current-time {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 600;
+    margin-top: 10px;
+    color: #00bfff;
+}
+
+#schedule-list {
+    margin-top: 20px;
+}
+
+#schedule-list .schedule-card {
+    background-color: #e3f8ff;
+    border-radius: 10px;
+    padding: 10px 15px;
+    margin: 10px 0;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#schedule-list .schedule-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: #00bfff;
+}
+
+#schedule-list .schedule-card p {
+    margin: 2px 0;
+    font-size: 14px;
+}
+
+#nearest-schedule-content {
+    background-color: #00bfff;
+    border-radius: 15px;
+    padding: 15px;
+    margin-top: 15px;
+    color: #000;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+#nearest-schedule-content .schedule-card {
+    background-color: #00bfff;
+    border-radius: 15px;
+    padding: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+#nearest-schedule-content .schedule-card h3 {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 5px;
+}
+
+#nearest-schedule-content .schedule-card p {
+    margin: 2px 0;
+    font-size: 14px;
+}
+
+@media screen and (min-width: 1024px) {
+    .navbar {
+        width: 300px;
+    }
+}
